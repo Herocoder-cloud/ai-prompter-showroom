@@ -1,1 +1,53 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PromptGlass | AI Asset Showroom</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #090d16; }
+        .glass-panel { background: rgba(17, 24, 39, 0.6); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.05); }
+    </style>
+</head>
+<body class="text-gray-300 min-h-screen antialiased">
+    <header class="border-b border-gray-800/60 sticky top-0 bg-[#090d16]/80 backdrop-blur-md z-50 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-xl bg-blue-600 flex items-center justify-center text-white"><i class="fa-solid fa-wand-magic-sparkles text-sm"></i></div>
+                <div>
+                    <h1 class="text-lg font-bold text-white tracking-tight">PromptGlass</h1>
+                    <p class="text-xs text-gray-500">Commercial AI Asset Showroom</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <button class="px-4 py-2 glass-panel text-sm font-medium rounded-xl text-gray-300 flex items-center gap-2">
+                    <i class="fa-solid fa-heart text-rose-500"></i> Saved Prompts (0)
+                </button>
+            </div>
+        </div>
+    </header>
+    <main class="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 lg:grid-cols-4 gap-8">
+        <aside class="space-y-6 lg:col-span-1">
+            <div class="glass-panel p-5 rounded-2xl space-y-4">
+                <h3 class="text-xs font-semibold uppercase tracking-wider text-gray-500">Filter Categories</h3>
+                <div id="filter-container" class="flex flex-col gap-2"></div>
+            </div>
+        </aside>
+        <section class="lg:col-span-3 space-y-6">
+            <div class="flex justify-between items-center">
+                <h2 id="active-category-title" class="text-xl font-bold text-white">All Masterpieces</h2>
+                <p id="item-count" class="text-sm text-gray-500">Showing 0 items</p>
+            </div>
+            <div id="showroom-grid" class="grid sm:grid-cols-2 gap-6"></div>
+        </section>
+    </main>
+    <div id="toast" class="fixed bottom-6 right-6 px-4 py-3 bg-emerald-600 text-white rounded-xl shadow-xl transform translate-y-20 opacity-0 transition duration-300 z-50">
+        <i class="fa-solid fa-circle-check"></i> <span class="text-sm font-medium">Prompt copied to clipboard!</span>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
